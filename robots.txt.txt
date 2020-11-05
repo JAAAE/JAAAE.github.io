@@ -9,4 +9,4 @@ Disallow: /css/
 Disallow: /fonts/
 Disallow: /vendors/
 Disallow: /fancybox/
-Sitemap: https://jaaae.github.io/sitemap.xml
+Sitemap: http://https://jaaae.github.io/sitemap.xml

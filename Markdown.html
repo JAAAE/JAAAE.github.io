@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="google-site-verification" content="true">
+  <meta name="msvalidate.01" content="true">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"jaaae.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="Markdown簡介根據Instant Markdown這本書作者提及，Markdown為一個輕量的markup語言，簡化了網頁作者的工作流程。有六個特性：  簡單使用（Easy to use） 快速（Fast） 簡潔（Clean） 彈性（Flexible） 可攜性（Portable） 專門為創作者而設計（Made for writers）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Markdown 語法">
+<meta property="og:url" content="https://jaaae.github.io/Markdown.html">
+<meta property="og:site_name" content="My Blog">
+<meta property="og:description" content="Markdown簡介根據Instant Markdown這本書作者提及，Markdown為一個輕量的markup語言，簡化了網頁作者的工作流程。有六個特性：  簡單使用（Easy to use） 快速（Fast） 簡潔（Clean） 彈性（Flexible） 可攜性（Portable） 專門為創作者而設計（Made for writers）">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://geography-revision.co.uk/wp-content/uploads/2020/02/Meanders.jpg">
+<meta property="article:published_time" content="2021-06-13T02:34:17.000Z">
+<meta property="article:modified_time" content="2022-07-02T16:57:40.437Z">
+<meta property="article:author" content="LUO">
+<meta property="article:tag" content="Markdown">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://geography-revision.co.uk/wp-content/uploads/2020/02/Meanders.jpg">
+
+<link rel="canonical" href="https://jaaae.github.io/Markdown.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>Markdown 語法 | My Blog</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-C05GRQ1Q96"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-C05GRQ1Q96');
+      }
+    </script>
+
+
+
+
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8719451103709914"
+     crossorigin="anonymous"></script>
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+<a target="_blank" rel="noopener" href="https://github.com/JAAAE" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">My Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://jaaae.github.io/Markdown.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="LUO">
+      <meta itemprop="description" content="心得紀錄、資訊分享。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="My Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Markdown 語法
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2021-06-13 10:34:17" itemprop="dateCreated datePublished" datetime="2021-06-13T10:34:17+08:00">2021-06-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2022-07-03 00:57:40" itemprop="dateModified" datetime="2022-07-03T00:57:40+08:00">2022-07-03</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%B3%87%E8%A8%8A%E5%88%86%E4%BA%AB/" itemprop="url" rel="index"><span itemprop="name">資訊分享</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="閱讀次數" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">閱讀次數：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h3 id="Markdown簡介"><a href="#Markdown簡介" class="headerlink" title="Markdown簡介"></a>Markdown簡介</h3><p>根據<em>Instant Markdown</em>這本書作者提及，Markdown為一個輕量的markup語言，簡化了網頁作者的工作流程。有六個特性：</p>
+<ol>
+<li>簡單使用（Easy to use）</li>
+<li>快速（Fast）</li>
+<li>簡潔（Clean）</li>
+<li>彈性（Flexible）</li>
+<li>可攜性（Portable）</li>
+<li>專門為創作者而設計（Made for writers）</li>
+</ol>
+<span id="more"></span>
+<h3 id="語法"><a href="#語法" class="headerlink" title="語法"></a>語法</h3><h4 id="一、段落"><a href="#一、段落" class="headerlink" title="一、段落"></a>一、段落</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">這是一段話，</span><br><span class="line">然後分成兩行。</span><br></pre></td></tr></table></figure>
+<p>結果：<br>這是一段話，<br>然後分成兩行。<br><font style="color:red">註：Markdown如果要換行的話，直接按Enter即可。</font></p>
+<h4 id="二、標題"><a href="#二、標題" class="headerlink" title="二、標題"></a>二、標題</h4><h5 id="1-Setext-style"><a href="#1-Setext-style" class="headerlink" title="1. Setext style"></a>1. Setext style</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Header 1</span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line"></span><br><span class="line">Header 2</span><br><span class="line">--------</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-Atx-style"><a href="#2-Atx-style" class="headerlink" title="2. Atx style"></a>2. Atx style</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Header 1</span><br><span class="line">## Header 2</span><br><span class="line">### Header 3</span><br><span class="line">#### Header 4</span><br><span class="line">##### Header 5</span><br><span class="line">###### Header 6</span><br></pre></td></tr></table></figure>
+<p style=color:red>註：此語法似html中Headings的h1至h6</p>
+
+<h4 id="二、文字樣式"><a href="#二、文字樣式" class="headerlink" title="二、文字樣式"></a>二、文字樣式</h4><table>
+<thead>
+<tr>
+<th>種類</th>
+<th>語法</th>
+<th>成果</th>
+<th>註</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>斜體</td>
+<td><code>*斜斜的字*</code></td>
+<td><em>斜斜的字</em></td>
+<td>也可以使用<code>_斜斜的字_</code></td>
+</tr>
+<tr>
+<td>強調</td>
+<td><code>**強調的字**</code></td>
+<td><strong>強調的字</strong></td>
+<td>也可以使用<code>__強調的字__</code></td>
+</tr>
+<tr>
+<td>強調+斜體</td>
+<td><code>***強調+斜體的字***</code></td>
+<td><strong><em>強調+斜體的字</em></strong></td>
+<td>也可以使用<code>___強調+斜體的字___</code></td>
+</tr>
+<tr>
+<td>刪節線</td>
+<td><code>~~刪節線~~</code></td>
+<td><del>刪節線</del></td>
+<td></td>
+</tr>
+</tbody></table>
+<h4 id="三、加入文字連結"><a href="#三、加入文字連結" class="headerlink" title="三、加入文字連結"></a>三、加入文字連結</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[這是Google Map的連結](https:&#x2F;&#x2F;www.google.com.tw&#x2F;maps&#x2F;)</span><br><span class="line">[這是PChome的連結](https:&#x2F;&#x2F;24h.pchome.com.tw&#x2F;index&#x2F;)</span><br><span class="line">[這是維基百科的連結](https:&#x2F;&#x2F;zh.wikipedia.org&#x2F;zh-tw&#x2F;Wikipedia:%E9%A6%96%E9%A1%B5)</span><br></pre></td></tr></table></figure>
+<p>結果：</p>
+<p><a target="_blank" rel="noopener" href="https://www.google.com.tw/maps/">這是Google Map的連結</a><br><a target="_blank" rel="noopener" href="https://24h.pchome.com.tw/index/">這是PChome的連結</a><br><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/zh-tw/Wikipedia:%E9%A6%96%E9%A1%B5">這是維基百科的連結</a></p>
+<h4 id="四、加入圖片連結"><a href="#四、加入圖片連結" class="headerlink" title="四、加入圖片連結"></a>四、加入圖片連結</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![這是一張曲流的照片](https:&#x2F;&#x2F;geography-revision.co.uk&#x2F;wp-content&#x2F;uploads&#x2F;2020&#x2F;02&#x2F;Meanders.jpg)</span><br></pre></td></tr></table></figure>
+<p>結果：<br><img src="https://geography-revision.co.uk/wp-content/uploads/2020/02/Meanders.jpg" alt="這是一張曲流的照片"></p>
+<h4 id="五、引用"><a href="#五、引用" class="headerlink" title="五、引用"></a>五、引用</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;幾米：所有的悲傷，總會留下一絲歡樂的線索，</span><br><span class="line">&gt;所有的遺憾，總會留下一處完美的角落。</span><br><span class="line">&gt;我在冰封的深海，尋找希望的缺口，</span><br><span class="line">&gt;卻在午夜驚醒時，瞥見絕美的陽光。</span><br><span class="line">&gt;&gt;內縮</span><br><span class="line">&gt;&gt;&gt;再內縮</span><br><span class="line">&gt;&gt;&gt;&gt;繼續內縮</span><br></pre></td></tr></table></figure>
+<p>結果：</p>
+<blockquote>
+<p>幾米：所有的悲傷，總會留下一絲歡樂的線索，<br>所有的遺憾，總會留下一處完美的角落。<br>我在冰封的深海，尋找希望的缺口，<br>卻在午夜驚醒時，瞥見絕美的陽光。</p>
+<blockquote>
+<p>內縮</p>
+<blockquote>
+<p>再內縮</p>
+<blockquote>
+<p>繼續內縮</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<h4 id="六、表列標號"><a href="#六、表列標號" class="headerlink" title="六、表列標號"></a>六、表列標號</h4><h5 id="1-無排序表列標號"><a href="#1-無排序表列標號" class="headerlink" title="1. 無排序表列標號"></a>1. 無排序表列標號</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">+ 第一行</span><br><span class="line">+ 第二行</span><br><span class="line">  + 第三行內縮</span><br><span class="line">    + 第四行再內縮</span><br></pre></td></tr></table></figure>
+<p>結果：</p>
+<ul>
+<li>第一行</li>
+<li>第二行<ul>
+<li>第三行內縮<ul>
+<li>第四行再內縮</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p style=color:red>註：「+」可以「-」或「*」替代</p>
+
+<h5 id="2-有排序表列標號"><a href="#2-有排序表列標號" class="headerlink" title="2. 有排序表列標號"></a>2. 有排序表列標號</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1. 第一行</span><br><span class="line">2. 第二行</span><br><span class="line">3. 第三行</span><br><span class="line">4. 第四行</span><br></pre></td></tr></table></figure>
+<p>結果：</p>
+<ol>
+<li>第一行</li>
+<li>第二行</li>
+<li>第三行</li>
+<li>第四行</li>
+</ol>
+<h4 id="七、代辦事項"><a href="#七、代辦事項" class="headerlink" title="七、代辦事項"></a>七、代辦事項</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- [X] 已經完成</span><br><span class="line">- [ ] 尚未完成</span><br></pre></td></tr></table></figure>
+<p>結果：</p>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 已經完成</li>
+<li><input disabled="" type="checkbox"> 尚未完成</li>
+</ul>
+<h4 id="八、表格"><a href="#八、表格" class="headerlink" title="八、表格"></a>八、表格</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">| 標題1 | 標題2 | 標題3 |</span><br><span class="line">| -------- | -------- | -------- |</span><br><span class="line">| 內容1 | 內容2 | 內容3 |</span><br><span class="line">| 內容4 | 內容5 | 內容6 |</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>結果：</p>
+<table>
+<thead>
+<tr>
+<th>標題1</th>
+<th>標題2</th>
+<th>標題3</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>內容1</td>
+<td>內容2</td>
+<td>內容3</td>
+</tr>
+<tr>
+<td>內容4</td>
+<td>內容5</td>
+<td>內容6</td>
+</tr>
+</tbody></table>
+<p style=color:red>註：<br><code>:--- 為靠左對齊</code><br><code>---: 為靠右對齊</code><br><code>:---: 為至中對齊</code></p>
+
+<h4 id="九、各段落前空兩格"><a href="#九、各段落前空兩格" class="headerlink" title="九、各段落前空兩格?"></a>九、各段落前空兩格?</h4><p>Markdown似乎沒有該功能，故使用HTML語法。於各段落之前加入，例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&amp;emsp;&amp;emsp;這是第一段的開頭，需要空兩格</span><br></pre></td></tr></table></figure>
+<p>結果：<br>&emsp;&emsp;這是第一段的開頭，需要空兩格</p>
+<h4 id="十、HackMD"><a href="#十、HackMD" class="headerlink" title="十、HackMD"></a>十、<a target="_blank" rel="noopener" href="https://hackmd.io/">HackMD</a></h4><p>以Markdown語法為基礎的筆記網站，可以快速地達到筆記排版的功能。</p>
+<p>由於是網路筆記，因此能夠即時地分享給其他人瀏覽或編輯，常用於團體討論與協作。該網站甚至也可以做成簡報模式，如下網址：<br><a target="_blank" rel="noopener" href="https://hackmd.io/yBgAAHfZQXyLUq2py_nTOA?both">https://hackmd.io/yBgAAHfZQXyLUq2py_nTOA?both</a></p>
+<p>整體而言，若需要快速記下筆記，又不喜歡word或google docs相對複雜的排版及列點方式，或者是欲探討一個議題，需要大家集思廣益而形成一個共識，以及筆記中需要紀錄大量程式碼時，該網站是個不錯的選擇！</p>
+<hr>
+
+<p>Reference:</p>
+<ol>
+<li>Matt Cone (2020). The Markdown Guide. <em>Independently Published</em>.</li>
+<li>Arturo Herrero (2013). Instant Markdown. <em>Packt Publishing</em>.</li>
+<li><a target="_blank" rel="noopener" href="https://ed521.github.io/2019/08/hexo-markdown/#%E9%A0%85%E7%9B%AE%E7%AC%A6%E8%99%9F-%E7%B7%A8%E8%99%9F">撰寫 Hexo 文章 - Markdown 語法大全</a></li>
+<li><a target="_blank" rel="noopener" href="https://aprilyang.home.blog/2020/02/14/6-ways-to-put-spaces-in-html/#emsp">實用！在HTML插入空白的6種方式</a></li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Markdown/" rel="tag"># Markdown</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/Interesting-Placenames.html" rel="prev" title="有趣的地名">
+      <i class="fa fa-chevron-left"></i> 有趣的地名
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/Online-Map-For-Fieldwork.html" rel="next" title="線上考察地圖（Desktop與Mobile版本）">
+      線上考察地圖（Desktop與Mobile版本） <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Markdown%E7%B0%A1%E4%BB%8B"><span class="nav-text">Markdown簡介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AA%9E%E6%B3%95"><span class="nav-text">語法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E6%AE%B5%E8%90%BD"><span class="nav-text">一、段落</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E6%A8%99%E9%A1%8C"><span class="nav-text">二、標題</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-Setext-style"><span class="nav-text">1. Setext style</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-Atx-style"><span class="nav-text">2. Atx style</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E6%96%87%E5%AD%97%E6%A8%A3%E5%BC%8F"><span class="nav-text">二、文字樣式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%8A%A0%E5%85%A5%E6%96%87%E5%AD%97%E9%80%A3%E7%B5%90"><span class="nav-text">三、加入文字連結</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E5%8A%A0%E5%85%A5%E5%9C%96%E7%89%87%E9%80%A3%E7%B5%90"><span class="nav-text">四、加入圖片連結</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E5%BC%95%E7%94%A8"><span class="nav-text">五、引用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E8%A1%A8%E5%88%97%E6%A8%99%E8%99%9F"><span class="nav-text">六、表列標號</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-%E7%84%A1%E6%8E%92%E5%BA%8F%E8%A1%A8%E5%88%97%E6%A8%99%E8%99%9F"><span class="nav-text">1. 無排序表列標號</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-%E6%9C%89%E6%8E%92%E5%BA%8F%E8%A1%A8%E5%88%97%E6%A8%99%E8%99%9F"><span class="nav-text">2. 有排序表列標號</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%83%E3%80%81%E4%BB%A3%E8%BE%A6%E4%BA%8B%E9%A0%85"><span class="nav-text">七、代辦事項</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%AB%E3%80%81%E8%A1%A8%E6%A0%BC"><span class="nav-text">八、表格</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B9%9D%E3%80%81%E5%90%84%E6%AE%B5%E8%90%BD%E5%89%8D%E7%A9%BA%E5%85%A9%E6%A0%BC"><span class="nav-text">九、各段落前空兩格?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8D%81%E3%80%81HackMD"><span class="nav-text">十、HackMD</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">LUO</p>
+  <div class="site-description" itemprop="description">心得紀錄、資訊分享。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/JAAAE" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;JAAAE" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+      </div>
+      <div class="Windy">
+        <span></span>
+        <br>
+        <iframe widh="300" height="200" src="https://embed.windy.com/embed2.html?lat=23.559&lon=120.864&detailLat=23.927&detailLon=120.990&width=300&height=200&zoom=5&level=surface&overlay=wind&product=ecmwf&menu=&message=true&marker=&calendar=now&pressure=true&type=map&location=coordinates&detail=&metricWind=default&metricTemp=default&radarRange=-1" frameborder="0"></iframe>
+      </div>
+<!--google_adsense-->
+
+
+
+<!--/google_adsense-->
+
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+      
+        <script type="text/javascript" charset="utf-8" src="/js/tagcloud.js"></script>
+        <script type="text/javascript" charset="utf-8" src="/js/tagcanvas.js"></script>
+        <div class="widget-wrap">
+          <h3 class="widget-title">Tag Cloud</h3>
+          <div id="myCanvasContainer" class="widget tagcloud">
+            <canvas width="250" height="250" id="resCanvas" style="width:100%">
+              <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/COVID-19/" rel="tag">COVID-19</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Datawrapper/" rel="tag">Datawrapper</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GeoJSON/" rel="tag">GeoJSON</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GitHub/" rel="tag">GitHub</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Leaflet/" rel="tag">Leaflet</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/No-Code/" rel="tag">No-Code</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SHP/" rel="tag">SHP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WEBGIS/" rel="tag">WEBGIS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WMS/" rel="tag">WMS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WMTS/" rel="tag">WMTS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-visualization/" rel="tag">data visualization</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%A7%E6%94%BF%E9%83%A8%E5%9C%B0%E5%90%8D%E8%B3%87%E8%A8%8A%E6%9C%8D%E5%8B%99%E7%B6%B2/" rel="tag">內政部地名資訊服務網</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9C%B0%E5%90%8D/" rel="tag">地名</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9C%B0%E7%90%86%E8%B3%87%E8%A8%8A%E7%B3%BB%E7%B5%B1/" rel="tag">地理資訊系統</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%B6%B2%E8%B7%AF%E5%9C%B0%E5%9C%96/" rel="tag">網路地圖</a><span class="tag-list-count">1</span></li></ul>
+            </canvas>
+          </div>
+        </div>
+      
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">LUO</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 強力驅動
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="訪客總數">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="總瀏覽次數">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

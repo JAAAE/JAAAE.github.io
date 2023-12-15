@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="google-site-verification" content="true">
+  <meta name="msvalidate.01" content="true">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"jaaae.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="COVID-19 社區人流趨勢報告&amp;emsp;&amp;emsp;此報告係Google公司透過Google Map等產品之匿名分析成果，用以觀察於COVID-19疫情期間，零售店和休閒設施、雜貨店和藥局、公園、大眾運輸站、工作場所以及住宅區人流變化趨勢。於應用上，可以進一步觀察某一政策、節日、事件對於人流之影響。&amp;emsp;&amp;emsp;此報告於2022年10月15日之後將停止更新。 2021年 !func">
+<meta property="og:type" content="article">
+<meta property="og:title" content="臺灣各場所人流變化（週平均）">
+<meta property="og:url" content="https://jaaae.github.io/Datawapper-COVID-19-Community%20Mobility-Reports.html">
+<meta property="og:site_name" content="My Blog">
+<meta property="og:description" content="COVID-19 社區人流趨勢報告&amp;emsp;&amp;emsp;此報告係Google公司透過Google Map等產品之匿名分析成果，用以觀察於COVID-19疫情期間，零售店和休閒設施、雜貨店和藥局、公園、大眾運輸站、工作場所以及住宅區人流變化趨勢。於應用上，可以進一步觀察某一政策、節日、事件對於人流之影響。&amp;emsp;&amp;emsp;此報告於2022年10月15日之後將停止更新。 2021年 !func">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://i.imgur.com/g1HpBFp.jpg">
+<meta property="article:published_time" content="2022-02-28T07:53:32.000Z">
+<meta property="article:modified_time" content="2023-03-20T07:06:57.437Z">
+<meta property="article:author" content="LUO">
+<meta property="article:tag" content="Datawrapper">
+<meta property="article:tag" content="data visualization">
+<meta property="article:tag" content="No-Code">
+<meta property="article:tag" content="COVID-19">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.imgur.com/g1HpBFp.jpg">
+
+<link rel="canonical" href="https://jaaae.github.io/Datawapper-COVID-19-Community%20Mobility-Reports.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>臺灣各場所人流變化（週平均） | My Blog</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-C05GRQ1Q96"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-C05GRQ1Q96');
+      }
+    </script>
+
+
+
+
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8719451103709914"
+     crossorigin="anonymous"></script>
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+<a target="_blank" rel="noopener" href="https://github.com/JAAAE" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">My Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://jaaae.github.io/Datawapper-COVID-19-Community%20Mobility-Reports.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="LUO">
+      <meta itemprop="description" content="心得紀錄、資訊分享。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="My Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          臺灣各場所人流變化（週平均）
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2022-02-28 15:53:32" itemprop="dateCreated datePublished" datetime="2022-02-28T15:53:32+08:00">2022-02-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2023-03-20 15:06:57" itemprop="dateModified" datetime="2023-03-20T15:06:57+08:00">2023-03-20</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%B3%87%E8%A8%8A%E5%88%86%E4%BA%AB/" itemprop="url" rel="index"><span itemprop="name">資訊分享</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="閱讀次數" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">閱讀次數：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h3 id="COVID-19-社區人流趨勢報告"><a href="#COVID-19-社區人流趨勢報告" class="headerlink" title="COVID-19 社區人流趨勢報告"></a><a target="_blank" rel="noopener" href="https://www.google.com/covid19/mobility/?hl=zh-TW">COVID-19 社區人流趨勢報告</a></h3><p>&emsp;&emsp;此報告係Google公司透過Google Map等產品之匿名分析成果，用以觀察於COVID-19疫情期間，零售店和休閒設施、雜貨店和藥局、公園、大眾運輸站、工作場所以及住宅區人流變化趨勢。於應用上，可以進一步觀察某一政策、節日、事件對於人流之影響。<br>&emsp;&emsp;此報告於2022年10月15日之後將停止更新。<br><br></p>
+<h3 id="2021年"><a href="#2021年" class="headerlink" title="2021年"></a>2021年</h3><br>
+<iframe title="2021年臺灣各場所人流變化（週平均）" aria-label="Interactive line chart" id="datawrapper-chart-oazNx" src="https://datawrapper.dwcdn.net/oazNx/16/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="582" data-external="1"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(e){if(void 0!==e.data["datawrapper-height"]){var t=document.querySelectorAll("iframe");for(var a in e.data["datawrapper-height"])for(var r=0;r<t.length;r++){if(t[r].contentWindow===e.source)t[r].style.height=e.data["datawrapper-height"][a]+"px"}}}))}();
+</script>
+
+<span id="more"></span>
+<hr>
+
+<h3 id="2022年（於10-15之後停止更新）"><a href="#2022年（於10-15之後停止更新）" class="headerlink" title="2022年（於10/15之後停止更新）"></a>2022年（於10/15之後停止更新）</h3><br>
+<iframe title="2022年臺灣各場所人流變化（週平均）－至10/15 " aria-label="Interactive line chart" id="datawrapper-chart-R1SqI" src="https://datawrapper.dwcdn.net/R1SqI/3/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="573" data-external="1"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(e){if(void 0!==e.data["datawrapper-height"]){var t=document.querySelectorAll("iframe");for(var a in e.data["datawrapper-height"])for(var r=0;r<t.length;r++){if(t[r].contentWindow===e.source)t[r].style.height=e.data["datawrapper-height"][a]+"px"}}}))}();
+</script>
+
+
+<h3 id="成果解說"><a href="#成果解說" class="headerlink" title="成果解說"></a>成果解說</h3><p>&emsp;&emsp;由2021年與202各地區人流變化趨勢，可總結某些趨勢：</p>
+<ol>
+<li>農曆年、二二八連假以及中秋節等節日，可以發現於住宅區、公園地區人流較多；工作場所則大幅下降，尤其以跨年當日更為明顯。與一般對於節日之認知相符。</li>
+<li>於2021年，由於5/15－7/27係三級警戒，基於大多數民眾居家辦公、遠距教學原因，可以發現於住宅區人流顯著成長，其餘工作場所、零售與休閒、公園和大眾運輸站則大幅下降。</li>
+<li>2022年由於omicron變異株原因，致使確診人數大幅上升，尤以<a target="_blank" rel="noopener" href="https://www.cdc.gov.tw/Bulletin/Detail/LKubIR8ByRgoCHxuKRK4eQ?typeid=9">5/27日達確診最高峰（單日94,855例）</a>。儘管中間疫情有趨緩（如下圖），但後續又有一波疫情來臨，可看見工作場所、零售與休閒、公園和大眾運輸站人潮，並無法回到基準無疫情時的水準。</li>
+</ol>
+<div style="height:auto;align:center"><img src="https://i.imgur.com/g1HpBFp.jpg" alt="Export" ></div><p style="text-align: center;font-size: 10px" ><a  target="_blank" rel="noopener" href="https://covid-19.nchc.org.tw/dt_005-covidTable_taiwan.php" > 台灣COVID-19疫情每日統計圖<br>資料來源：國家高速網路與計算中心 COVID-19全球疫情地圖</a></p>
+
+<h3 id="資料來源"><a href="#資料來源" class="headerlink" title="資料來源"></a>資料來源</h3><p><a target="_blank" rel="noopener" href="https://www.google.com/covid19/mobility/?hl=zh-TW">COVID-19 社區人流趨勢報告</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Datawrapper/" rel="tag"># Datawrapper</a>
+              <a href="/tags/data-visualization/" rel="tag"># data visualization</a>
+              <a href="/tags/No-Code/" rel="tag"># No-Code</a>
+              <a href="/tags/COVID-19/" rel="tag"># COVID-19</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/Online-Map-For-Fieldwork.html" rel="prev" title="線上考察地圖（Desktop與Mobile版本）">
+      <i class="fa fa-chevron-left"></i> 線上考察地圖（Desktop與Mobile版本）
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#COVID-19-%E7%A4%BE%E5%8D%80%E4%BA%BA%E6%B5%81%E8%B6%A8%E5%8B%A2%E5%A0%B1%E5%91%8A"><span class="nav-text">COVID-19 社區人流趨勢報告</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2021%E5%B9%B4"><span class="nav-text">2021年</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2022%E5%B9%B4%EF%BC%88%E6%96%BC10-15%E4%B9%8B%E5%BE%8C%E5%81%9C%E6%AD%A2%E6%9B%B4%E6%96%B0%EF%BC%89"><span class="nav-text">2022年（於10&#x2F;15之後停止更新）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%88%90%E6%9E%9C%E8%A7%A3%E8%AA%AA"><span class="nav-text">成果解說</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B3%87%E6%96%99%E4%BE%86%E6%BA%90"><span class="nav-text">資料來源</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">LUO</p>
+  <div class="site-description" itemprop="description">心得紀錄、資訊分享。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/JAAAE" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;JAAAE" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+      </div>
+      <div class="Windy">
+        <span></span>
+        <br>
+        <iframe widh="300" height="200" src="https://embed.windy.com/embed2.html?lat=23.559&lon=120.864&detailLat=23.927&detailLon=120.990&width=300&height=200&zoom=5&level=surface&overlay=wind&product=ecmwf&menu=&message=true&marker=&calendar=now&pressure=true&type=map&location=coordinates&detail=&metricWind=default&metricTemp=default&radarRange=-1" frameborder="0"></iframe>
+      </div>
+<!--google_adsense-->
+
+
+
+<!--/google_adsense-->
+
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+      
+        <script type="text/javascript" charset="utf-8" src="/js/tagcloud.js"></script>
+        <script type="text/javascript" charset="utf-8" src="/js/tagcanvas.js"></script>
+        <div class="widget-wrap">
+          <h3 class="widget-title">Tag Cloud</h3>
+          <div id="myCanvasContainer" class="widget tagcloud">
+            <canvas width="250" height="250" id="resCanvas" style="width:100%">
+              <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/COVID-19/" rel="tag">COVID-19</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Datawrapper/" rel="tag">Datawrapper</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GeoJSON/" rel="tag">GeoJSON</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GitHub/" rel="tag">GitHub</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Leaflet/" rel="tag">Leaflet</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/No-Code/" rel="tag">No-Code</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SHP/" rel="tag">SHP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WEBGIS/" rel="tag">WEBGIS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WMS/" rel="tag">WMS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WMTS/" rel="tag">WMTS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-visualization/" rel="tag">data visualization</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%A7%E6%94%BF%E9%83%A8%E5%9C%B0%E5%90%8D%E8%B3%87%E8%A8%8A%E6%9C%8D%E5%8B%99%E7%B6%B2/" rel="tag">內政部地名資訊服務網</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9C%B0%E5%90%8D/" rel="tag">地名</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9C%B0%E7%90%86%E8%B3%87%E8%A8%8A%E7%B3%BB%E7%B5%B1/" rel="tag">地理資訊系統</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%B6%B2%E8%B7%AF%E5%9C%B0%E5%9C%96/" rel="tag">網路地圖</a><span class="tag-list-count">1</span></li></ul>
+            </canvas>
+          </div>
+        </div>
+      
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">LUO</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 強力驅動
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="訪客總數">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="總瀏覽次數">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
